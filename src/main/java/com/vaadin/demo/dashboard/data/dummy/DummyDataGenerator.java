@@ -128,7 +128,7 @@ public abstract class DummyDataGenerator {
         n1.setId(1);
         n1.setFirstName(randomFirstName());
         n1.setLastName(randomLastName());
-        n1.setAction("created a new report");
+        n1.setAction("add a new school");
         n1.setPrettyTime("25 minutes ago");
         n1.setContent(randomText(18));
 
@@ -136,7 +136,7 @@ public abstract class DummyDataGenerator {
         n2.setId(2);
         n2.setFirstName(randomFirstName());
         n2.setLastName(randomLastName());
-        n2.setAction("changed the schedule");
+        n2.setAction("reached 100 answered questions");
         n2.setPrettyTime("2 days ago");
         n2.setContent(randomText(10));
 

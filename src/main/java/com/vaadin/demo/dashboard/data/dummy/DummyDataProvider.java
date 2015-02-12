@@ -125,11 +125,11 @@ public class DummyDataProvider implements DataProvider {
                         fileWriter.close();
                     } catch (Exception e) {
                         json = readJsonFromFile(new File(baseDirectory
-                                + "/movies-fallback.txt"));
+                                + "/students-fallback.txt"));
                     }
                 } else {
                     json = readJsonFromFile(new File(baseDirectory
-                            + "/movies-fallback.txt"));
+                            + "/students-fallback.txt"));
                 }
             }
         } catch (Exception e) {

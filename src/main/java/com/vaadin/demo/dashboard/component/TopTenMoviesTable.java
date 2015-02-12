@@ -24,7 +24,7 @@ public final class TopTenMoviesTable extends Table {
             if (property != null && property.getValue() != null) {
                 Double r = (Double) property.getValue();
                 String ret = new DecimalFormat("#.##").format(r);
-                result = "$" + ret;
+                result = "" + ret;
             } else {
                 result = "";
             }
@@ -33,7 +33,7 @@ public final class TopTenMoviesTable extends Table {
     }
 
     public TopTenMoviesTable() {
-        setCaption("Top 10 Titles by Revenue");
+        setCaption("Top 10 Students");
 
         addStyleName(ValoTheme.TABLE_BORDERLESS);
         addStyleName(ValoTheme.TABLE_NO_STRIPES);

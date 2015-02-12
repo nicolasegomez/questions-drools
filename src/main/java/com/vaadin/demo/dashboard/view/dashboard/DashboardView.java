@@ -89,19 +89,19 @@ public final class DashboardView extends Panel implements View,
         sparks.setWidth("100%");
         Responsive.makeResponsive(sparks);
 
-        SparklineChart s = new SparklineChart("Traffic", "K", "",
+        SparklineChart s = new SparklineChart("Students", "K", "",
                 DummyDataGenerator.chartColors[0], 22, 20, 80);
         sparks.addComponent(s);
 
-        s = new SparklineChart("Revenue / Day", "M", "$",
+        s = new SparklineChart("Questions / Day", "K", "",
                 DummyDataGenerator.chartColors[2], 8, 89, 150);
         sparks.addComponent(s);
 
-        s = new SparklineChart("Checkout Time", "s", "",
+        s = new SparklineChart("Answer Average", "s", "",
                 DummyDataGenerator.chartColors[3], 10, 30, 120);
         sparks.addComponent(s);
 
-        s = new SparklineChart("Theater Fill Rate", "%", "",
+        s = new SparklineChart("Questionaries Completeness", "%", "",
                 DummyDataGenerator.chartColors[5], 50, 34, 100);
         sparks.addComponent(s);
 
@@ -121,8 +121,9 @@ public final class DashboardView extends Panel implements View,
         header.addComponent(titleLabel);
 
         notificationsButton = buildNotificationsButton();
-        Component edit = buildEditButton();
-        HorizontalLayout tools = new HorizontalLayout(notificationsButton, edit);
+        //Component edit = buildEditButton();
+        //HorizontalLayout tools = new HorizontalLayout(notificationsButton, edit);
+        HorizontalLayout tools = new HorizontalLayout(notificationsButton);
         tools.setSpacing(true);
         tools.addStyleName("toolbar");
         header.addComponent(tools);
@@ -180,7 +181,7 @@ public final class DashboardView extends Panel implements View,
 
     private Component buildNotes() {
         TextArea notes = new TextArea("Notes");
-        notes.setValue("Remember to:\n· Zoom in and out in the Sales view\n· Filter the transactions and drag a set of them to the Reports tab\n· Create a new report\n· Change the schedule of the movie theater");
+        notes.setValue("Remember to:\n· Put your notes here...");
         notes.setSizeFull();
         notes.addStyleName(ValoTheme.TEXTAREA_BORDERLESS);
         Component panel = createContentWrapper(notes);
