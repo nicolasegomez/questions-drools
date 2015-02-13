@@ -140,6 +140,11 @@
 			<version>2.1.0</version>
 		</dependency>
 		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>wizards-for-vaadin</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-testbench</artifactId>
 			<version>4.0.0.rc1</version>
@@ -210,9 +215,9 @@
 						</configuration>
 						<goals>
 							<goal>resources</goal>
-              <goal>update-theme</goal>
+							<goal>update-theme</goal>
 							<goal>update-widgetset</goal>
-              <goal>compile-theme</goal>
+							<goal>compile-theme</goal>
 							<goal>compile</goal>
 						</goals>
 					</execution>
