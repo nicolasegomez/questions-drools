@@ -32,15 +32,18 @@ public class QuestionnaireWizardStep implements WizardStep {
 	
 	@Override
 	public boolean onAdvance() {	
-		questionnaireService.setAnswer(questionPanel.getAnswer());
-		Question newQuestion = questionnaireService.getQuestion();
-		if (newQuestion != null)
-			//questionsWizard.removeStep(QuestionnaireFinalWizardStep.ID);
-			questionsWizard.addStep(new QuestionnaireWizardStep(questionnaireService,
-					questionPanelFactory,
-					questionsWizard,
-					newQuestion));
-			//questionsWizard.addStep(new QuestionnaireFinalWizardStep(), QuestionnaireFinalWizardStep.ID);
+//		questionnaireService.setAnswer(questionPanel.getAnswer());
+//		Question newQuestion = questionnaireService.getQuestion();
+//		if (newQuestion != null){
+//			//questionsWizard.removeStep(QuestionnaireFinalWizardStep.ID);
+//			questionsWizard.addStep(new QuestionnaireWizardStep(questionnaireService,
+//					questionPanelFactory,
+//					questionsWizard,
+//					newQuestion));
+//			//questionsWizard.addStep(new QuestionnaireFinalWizardStep(), QuestionnaireFinalWizardStep.ID);
+//		return true;}
+//		else return true;
+		
 		return true;
 	}
 	
@@ -55,4 +58,7 @@ public class QuestionnaireWizardStep implements WizardStep {
 		return question.getTitle();
 	}
 
+	public QuestionPanel getQuestionPanel() {
+		return questionPanel;
+	}
 }
