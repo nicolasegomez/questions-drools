@@ -32,9 +32,20 @@ then
 	update(questionary);
 end
 
-rule "Finished"
+rule "Question 3"
 when
 	questionary: Questionary( currentQuestion == null && answeredQuestions.size() == 2, finished == false)
+then
+    Question q = new Question();
+	q.setTitle("Sports");
+	q.setText("What is the best team in the world?");
+	questionary.setCurrentQuestion(q);
+	update(questionary);
+end
+
+rule "Finished"
+when
+	questionary: Questionary( currentQuestion == null && answeredQuestions.size() == 3, finished == false)
 then
 	questionary.setFinished(true);
 	update(questionary);

@@ -22,6 +22,9 @@ public class DroolsQuestionnaireServiceImpl implements QuestionnaireService {
 		QueryResults results = ksession.getQueryResults( "questionary" );
 		QueryResultsRow row = results.iterator().next();
 		Questionary questionary = (Questionary) row.get("questionary");
+		if (questionary.isFinished()) {
+			return null;
+		}
 		return questionary.getCurrentQuestion();
 	}
 
