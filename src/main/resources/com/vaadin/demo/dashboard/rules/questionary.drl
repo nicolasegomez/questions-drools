@@ -1,0 +1,54 @@
+package com.vaadin.demo.dashboard
+import com.vaadin.demo.dashboard.domain.questions.Questionary;
+import com.vaadin.demo.dashboard.domain.questions.Answer;
+import com.vaadin.demo.dashboard.domain.questions.Question;
+
+rule "init"
+when
+	not Questionary()
+then
+	insert(new Questionary());
+end
+
+rule "Question 1"
+when
+	questionary: Questionary( currentQuestion == null && answeredQuestions.size() == 0, finished == false)
+then
+    Question q = new Question();
+	q.setTitle("Age");
+	q.setText("Please, insert your age:");
+	questionary.setCurrentQuestion(q);
+	update(questionary);
+end
+
+rule "Question 2"
+when
+	questionary: Questionary( currentQuestion == null && answeredQuestions.size() == 1, finished == false)
+then
+    Question q = new Question();
+	q.setTitle("Entertainment");
+	q.setText("What is your favourite TV serie?");
+	questionary.setCurrentQuestion(q);
+	update(questionary);
+end
+
+rule "Finished"
+when
+	questionary: Questionary( currentQuestion == null && answeredQuestions.size() == 2, finished == false)
+then
+	questionary.setFinished(true);
+	update(questionary);
+end
+
+rule "Answer"
+    when
+		questionary: Questionary( currentQuestion != null)
+		a: Answer( questionId == questionary.currentQuestion.id)
+    then
+        questionary.answerCurretQuestion(a);
+        update(questionary);
+end
+
+query "questionary"
+	questionary: Questionary()
+end

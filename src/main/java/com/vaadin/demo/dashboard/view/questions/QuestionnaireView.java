@@ -1,11 +1,10 @@
 package com.vaadin.demo.dashboard.view.questions;
 
 import org.vaadin.teemu.wizards.Wizard;
-import org.vaadin.teemu.wizards.WizardStep;
 
+import com.vaadin.demo.dashboard.domain.questions.DroolsQuestionnaireServiceImpl;
 import com.vaadin.demo.dashboard.domain.questions.Question;
 import com.vaadin.demo.dashboard.domain.questions.QuestionnaireService;
-import com.vaadin.demo.dashboard.domain.questions.QuestionnaireServiceImpl;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.Responsive;
@@ -31,10 +30,12 @@ public class QuestionnaireView extends VerticalLayout implements View {
         addComponent(buildHeader());
         
         questionsWizard = new Wizard();
+        questionsWizard.getNextButton().setEnabled(true);
+        questionsWizard.getFinishButton().setEnabled(true);
         addComponent(questionsWizard);
         setExpandRatio(questionsWizard, 1);
         
-        questionnaireService = new QuestionnaireServiceImpl();
+        questionnaireService = new DroolsQuestionnaireServiceImpl();
         questionPanelFactory = new QuestionPanelFactoryImpl();
     }
 
