@@ -56,7 +56,7 @@ public class QuestionnaireView extends VerticalLayout implements View {
 
 			@Override
 			public void wizardCompleted(WizardCompletedEvent event) {
-				// TODO Auto-generated method stub
+				endWizard("Questionnaire Ended");
 
 			}
 
