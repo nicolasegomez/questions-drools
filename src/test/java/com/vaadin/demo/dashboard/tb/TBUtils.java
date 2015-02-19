@@ -8,7 +8,7 @@ import com.vaadin.testbench.TestBench;
 
 public class TBUtils {
 
-    private static final String TARGET_URL = "http://localhost:8080/questionary-demo?restartApplication=true";
+    private static final String TARGET_URL = "http://localhost:8080/questionnaire-demo?restartApplication=true";
 
     public static TBLoginView openInitialView() {
         WebDriver driver = TestBench.createDriver(new FirefoxDriver());

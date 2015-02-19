@@ -1,7 +1,7 @@
 package com.vaadin.demo.dashboard.view;
 
 import com.vaadin.demo.dashboard.view.dashboard.DashboardView;
-import com.vaadin.demo.dashboard.view.questions.QuestionaryView;
+import com.vaadin.demo.dashboard.view.questions.QuestionnaireView;
 import com.vaadin.demo.dashboard.view.reports.ReportsView;
 import com.vaadin.demo.dashboard.view.sales.SalesView;
 import com.vaadin.demo.dashboard.view.schedule.ScheduleView;
@@ -16,7 +16,7 @@ public enum DashboardViewType {
     TRANSACTIONS("transactions", TransactionsView.class, FontAwesome.TABLE, false, false),
     REPORTS("reports", ReportsView.class, FontAwesome.FILE_TEXT_O, true, false),
     SCHEDULE("schedule", ScheduleView.class, FontAwesome.CALENDAR_O, false, false),
-    QUESTIONARY("questionary", QuestionaryView.class, FontAwesome.QUESTION, false, true)
+    QUESTIONNAIRE("questionnaire", QuestionnaireView.class, FontAwesome.QUESTION, false, true)
     ;
 
     private final String viewName;
