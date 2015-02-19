@@ -1,5 +1,7 @@
 package com.vaadin.demo.dashboard.view.questions;
 
+import java.util.ArrayList;
+
 import org.vaadin.teemu.wizards.Wizard;
 import org.vaadin.teemu.wizards.event.WizardCancelledEvent;
 import org.vaadin.teemu.wizards.event.WizardCompletedEvent;
@@ -29,6 +31,8 @@ public class QuestionnaireView extends VerticalLayout implements View {
 	private QuestionPanelFactory questionPanelFactory;
 
 	private QuestionnaireService questionnaireService;
+	
+	private ArrayList<Question> addedQuestions;
 
 	private Layout layout;
 
@@ -76,8 +80,9 @@ public class QuestionnaireView extends VerticalLayout implements View {
 			public void activeStepChanged(WizardStepActivationEvent event) {
 				questionnaireService.setAnswer(((QuestionnaireWizardStep)event.getActivatedStep()).getQuestionPanel().getAnswer());
 				Question newQuestion = questionnaireService.getQuestion();
-				if (newQuestion != null){
+				if (newQuestion != null && !addedQuestions.contains(newQuestion)){
 					//questionsWizard.removeStep(QuestionnaireFinalWizardStep.ID);
+					addedQuestions.add(newQuestion);
 					questionsWizard.addStep(new QuestionnaireWizardStep(questionnaireService,
 							questionPanelFactory,
 							questionsWizard,
@@ -114,11 +119,13 @@ public class QuestionnaireView extends VerticalLayout implements View {
 
 	@Override
 	public void enter(final ViewChangeEvent event) {
+		addedQuestions = new ArrayList<Question>();
 		questionnaireService.initQuestionaire();
 
 		final Question question = questionnaireService.getQuestion();
 
-		if (question != null) {
+		if (question != null && !addedQuestions.contains(question)) {
+			addedQuestions.add(question);
 			questionsWizard.addStep(new QuestionnaireWizardStep(
 					questionnaireService, questionPanelFactory,
 					questionsWizard, question));

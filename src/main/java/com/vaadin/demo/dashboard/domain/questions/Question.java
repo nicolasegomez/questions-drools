@@ -41,4 +41,12 @@ public class Question {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (id!= null && obj!= null && ((Question)obj).getId() != null )
+		return id.equals(((Question)obj).getId());
+		
+		return false;
+	}
 }
